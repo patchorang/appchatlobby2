@@ -21,6 +21,10 @@
 		2597461F17F7827900694B90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2597460117F7827900694B90 /* UIKit.framework */; };
 		2597462717F7827900694B90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2597462517F7827900694B90 /* InfoPlist.strings */; };
 		2597462917F7827900694B90 /* appchatlobby2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2597462817F7827900694B90 /* appchatlobby2Tests.m */; };
+		5427E1D117F789A3003DFC79 /* InitialScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D017F789A3003DFC79 /* InitialScreenViewController.m */; };
+		5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D317F78A02003DFC79 /* LobbyViewController.m */; };
+		5427E1D717F78A14003DFC79 /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D617F78A14003DFC79 /* InGameViewController.m */; };
+		5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		2597462417F7827900694B90 /* appchatlobby2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "appchatlobby2Tests-Info.plist"; sourceTree = "<group>"; };
 		2597462617F7827900694B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2597462817F7827900694B90 /* appchatlobby2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appchatlobby2Tests.m; sourceTree = "<group>"; };
+		5427E1CF17F789A3003DFC79 /* InitialScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialScreenViewController.h; sourceTree = "<group>"; };
+		5427E1D017F789A3003DFC79 /* InitialScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialScreenViewController.m; sourceTree = "<group>"; };
+		5427E1D217F78A02003DFC79 /* LobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyViewController.h; sourceTree = "<group>"; };
+		5427E1D317F78A02003DFC79 /* LobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyViewController.m; sourceTree = "<group>"; };
+		5427E1D517F78A14003DFC79 /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
+		5427E1D617F78A14003DFC79 /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
+		5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreReportViewController.h; sourceTree = "<group>"; };
+		5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreReportViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,14 @@
 				2597460C17F7827900694B90 /* ACLAppDelegate.h */,
 				2597460D17F7827900694B90 /* ACLAppDelegate.m */,
 				2597460F17F7827900694B90 /* Main.storyboard */,
+				5427E1CF17F789A3003DFC79 /* InitialScreenViewController.h */,
+				5427E1D017F789A3003DFC79 /* InitialScreenViewController.m */,
+				5427E1D217F78A02003DFC79 /* LobbyViewController.h */,
+				5427E1D317F78A02003DFC79 /* LobbyViewController.m */,
+				5427E1D517F78A14003DFC79 /* InGameViewController.h */,
+				5427E1D617F78A14003DFC79 /* InGameViewController.m */,
+				5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */,
+				5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */,
 				2597461217F7827900694B90 /* ACLViewController.h */,
 				2597461317F7827900694B90 /* ACLViewController.m */,
 				2597461517F7827900694B90 /* Images.xcassets */,
@@ -250,7 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */,
 				2597461417F7827900694B90 /* ACLViewController.m in Sources */,
+				5427E1D117F789A3003DFC79 /* InitialScreenViewController.m in Sources */,
+				5427E1D717F78A14003DFC79 /* InGameViewController.m in Sources */,
+				5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */,
 				2597460A17F7827900694B90 /* main.m in Sources */,
 				2597460E17F7827900694B90 /* ACLAppDelegate.m in Sources */,
 			);
@@ -461,6 +485,7 @@
 				2597462E17F7827900694B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2597462F17F7827900694B90 /* Build configuration list for PBXNativeTarget "appchatlobby2Tests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +494,7 @@
 				2597463117F7827900694B90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
