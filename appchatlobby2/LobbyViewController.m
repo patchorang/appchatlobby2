@@ -1,9 +1,8 @@
 //
-//  LobbyViewController.m
-//  appchatlobby2
+//  testViewController.m
+//  AppChatLobby
 //
-//  Created by Eric Ertmann on 9/28/13.
-//  Copyright (c) 2013 margarita. All rights reserved.
+//  Copyright (c) 2012 Gamooga. All rights reserved.
 //
 
 #import "LobbyViewController.h"
@@ -15,39 +14,64 @@
 @synthesize chatMsg;
 @synthesize messages;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
+    ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
         gc = [appDelegate gc];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    [self initGamoogaClient];
-    messages = [[NSMutableArray alloc] init];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark ()
+#pragma mark - View lifecycle
 
-- (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId {
-    ((ACLAppDelegate *)[[UIApplication sharedApplication] delegate]).playerId = playerId;
-    self.userName = userName;
-    self.playerId = playerId;
-    self.gameId = gameId;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden = NO;
+    
+    self.title = @"Lobby";
+	
+    [self initGamoogaClient];
+    
+    messages = [[NSMutableArray alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
 }
 
 #pragma mark - Gamooga init and callbacks
@@ -131,13 +155,6 @@
 
 - (void) onUsergone:(NSString *)data {
     // TODO: Handle users leaving the game
-    //[self addItem:[NSString stringWithFormat:@"*** %@ gone away", data]];
-    //for (int i = 0; i < [messages count]; i++) {
-    //    if ([data isEqualToString:[messages objectAtIndex:i]]) {
-    //        [messages removeObjectAtIndex:i];
-    //        [chatData reloadData];
-    //    }
-    //}
 }
 
 - (void) onDisconnect {
@@ -158,10 +175,12 @@
 	chatMsg.text = @"";
 }
 
-//- (IBAction)sendChat:(id)sender {
-//    [gc sendMessage:chatMsg.text withType:@"chat"];
-//	chatMsg.text = @"";
-//}
-
+- (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId {
+    ((ACLAppDelegate *)[[UIApplication sharedApplication] delegate]).playerId = playerId;
+    self.userName = userName;
+    self.playerId = playerId;
+    self.gameId = gameId;
+}
 
 @end
+
