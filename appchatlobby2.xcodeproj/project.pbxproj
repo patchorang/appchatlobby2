@@ -26,6 +26,8 @@
 		25A71B3B17F7986D006D9D3F /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D617F78A14003DFC79 /* InGameViewController.m */; };
 		5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D317F78A02003DFC79 /* LobbyViewController.m */; };
 		5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */; };
+		54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */; };
+		54F04AB117F7A24B0091238C /* avatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F04AB017F7A24B0091238C /* avatar-placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		5427E1D617F78A14003DFC79 /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreReportViewController.h; sourceTree = "<group>"; };
 		5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreReportViewController.m; sourceTree = "<group>"; };
+		54F04AAD17F79EE40091238C /* LobbyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyCollectionViewCell.h; sourceTree = "<group>"; };
+		54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyCollectionViewCell.m; sourceTree = "<group>"; };
+		54F04AB017F7A24B0091238C /* avatar-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +134,12 @@
 		2597460317F7827900694B90 /* appchatlobby2 */ = {
 			isa = PBXGroup;
 			children = (
+				54F04AB017F7A24B0091238C /* avatar-placeholder.png */,
 				2597460C17F7827900694B90 /* ACLAppDelegate.h */,
 				2597460D17F7827900694B90 /* ACLAppDelegate.m */,
 				2597460F17F7827900694B90 /* Main.storyboard */,
+				54F04AAD17F79EE40091238C /* LobbyCollectionViewCell.h */,
+				54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */,
 				5427E1CF17F789A3003DFC79 /* InitialScreenViewController.h */,
 				5427E1D017F789A3003DFC79 /* InitialScreenViewController.m */,
 				5427E1D217F78A02003DFC79 /* LobbyViewController.h */,
@@ -258,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F04AB117F7A24B0091238C /* avatar-placeholder.png in Resources */,
 				2597461617F7827900694B90 /* Images.xcassets in Resources */,
 				2597460817F7827900694B90 /* InfoPlist.strings in Resources */,
 				2597461117F7827900694B90 /* Main.storyboard in Resources */,
@@ -282,6 +291,7 @@
 				25A71B3B17F7986D006D9D3F /* InGameViewController.m in Sources */,
 				25A71B3A17F7985C006D9D3F /* InitialScreenViewController.m in Sources */,
 				5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */,
+				54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */,
 				2597461417F7827900694B90 /* ACLViewController.m in Sources */,
 				5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */,
 				2597460A17F7827900694B90 /* main.m in Sources */,
@@ -428,7 +438,7 @@
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/adammenz/Developer/appchatlobby2,
+					"~/Documents/Projects/appchatlobby2",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -451,7 +461,7 @@
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/adammenz/Developer/appchatlobby2,
+					"~/Documents/Projects/appchatlobby2",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GamoogaClient.h"
+#import "LobbyCollectionViewCell.h"
 
-@interface LobbyViewController : UIViewController {
+@interface LobbyViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     GamoogaClient *gc;
     NSMutableArray *messages;
 }

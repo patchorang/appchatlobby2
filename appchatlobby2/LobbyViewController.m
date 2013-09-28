@@ -163,5 +163,17 @@
 //	chatMsg.text = @"";
 //}
 
+#pragma mark Colection View Methods
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 2; // Number of players.
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LobbyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"lobby cell" forIndexPath:indexPath];
+    return cell;
+}
 
 @end
