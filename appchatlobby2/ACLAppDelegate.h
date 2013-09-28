@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GamoogaClient.h"
 
 @interface ACLAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) NSString *playerId;
+@property (strong, nonatomic) GamoogaClient *gc;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

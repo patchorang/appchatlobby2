@@ -10,9 +10,13 @@
 
 @implementation ACLAppDelegate
 
+@synthesize window = _window;
+@synthesize gc;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    gc = [[GamoogaClient alloc] init];
     return YES;
 }
 							
