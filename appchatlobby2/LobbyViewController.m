@@ -7,6 +7,7 @@
 
 #import "LobbyViewController.h"
 #import "ACLAppDelegate.h"
+#import "ImgurAPI.h"
 
 @implementation LobbyViewController
 
@@ -20,6 +21,7 @@
         // Custom initialization
         ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
         gc = [appDelegate gc];
+        self.pictures = [NSMutableArray array];
     }
     return self;
 }
@@ -120,6 +122,8 @@
      */
     [gc onMessageCallback:@selector(start:) withTarget:self forType:@"startgame"];
     
+    [gc onMessageCallback:@selector(photoRecv:) withTarget:self forType:@"photorecv"];
+    
     /**
      We have been disconnected from the server, call 'onDisconnect'.
      */
@@ -140,11 +144,31 @@
 
 
 - (void) onConnect {
-    [gc sendMessage:[NSString stringWithFormat:@"%@ %@", self.userName, self.playerId] withType:@"mynick"];
+    NSLog(@"Connected");
+    //[gc sendMessage:[NSString stringWithFormat:@"%@ %@", self.userName, self.playerId] withType:@"mynick"];
+    
+    NSData *data = UIImageJPEGRepresentation(self.imageItem, 1.0);
+    
+    [MLIMGURUploader uploadPhoto:data title:@"title" description:@"" imgurClientID:@"96cb98fc23c00cd" completionBlock:^(NSString *result) {
+//        NSLog(@"%@", result);
+        self.photoUrl = result;
+        NSLog(@"sending");
+        [gc sendMessage:result withType:@"profilephoto"];
+    } failureBlock:^(NSURLResponse *response, NSError *error, NSInteger status) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void) start:(NSString *)data {
     [self performSegueWithIdentifier:@"startGame" sender:self];
+}
+
+- (void) photoRecv:(NSString *)data {
+    NSLog(@"phot recv");
+    NSLog(@"%@", data);
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:data]];
+    UIImage *otherImage = [UIImage imageWithData:imageData];
+    [self.pictures addObject:otherImage];
 }
 
 - (void) onUserjoin:(NSString *)data {
@@ -170,6 +194,7 @@
 }
 
 - (void) onError:(int)errn {
+    NSLog(@"ERR: %d", errn);
     //[self addItem:[NSString stringWithFormat:@"error: %d", errn]];
 }
 
@@ -192,20 +217,26 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2; // Number of players.
+    return [self.pictures count]; // Number of players.
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LobbyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"lobby cell" forIndexPath:indexPath];
+    cell.avatarImageView.image = [self.pictures objectAtIndex:indexPath.row];
     return cell;
-}
+};
 
 - (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId {
     ((ACLAppDelegate *)[[UIApplication sharedApplication] delegate]).playerId = playerId;
     self.userName = userName;
     self.playerId = playerId;
     self.gameId = gameId;
+}
+
+- (void)setImage:(UIImage *)image {
+    self.imageItem = image;
+    [self.pictures addObject:image];
 }
 
 @end

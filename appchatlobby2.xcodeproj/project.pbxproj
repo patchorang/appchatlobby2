@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2583BEFC17F8114D00CA9CC8 /* ImgurAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583BEF417F8114D00CA9CC8 /* ImgurAPI.m */; };
+		2583BEFD17F8114D00CA9CC8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583BEF717F8114D00CA9CC8 /* NSData+Base64.m */; };
+		2583BEFE17F8114D00CA9CC8 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583BEF917F8114D00CA9CC8 /* NSString+URLEncoding.m */; };
+		2583BEFF17F8114D00CA9CC8 /* NSString+URLEscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583BEFB17F8114D00CA9CC8 /* NSString+URLEscape.m */; };
 		259745FE17F7827900694B90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259745FD17F7827900694B90 /* Foundation.framework */; };
 		2597460017F7827900694B90 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259745FF17F7827900694B90 /* CoreGraphics.framework */; };
 		2597460217F7827900694B90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2597460117F7827900694B90 /* UIKit.framework */; };
@@ -46,6 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2583BEF317F8114D00CA9CC8 /* ImgurAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurAPI.h; sourceTree = "<group>"; };
+		2583BEF417F8114D00CA9CC8 /* ImgurAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurAPI.m; sourceTree = "<group>"; };
+		2583BEF617F8114D00CA9CC8 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		2583BEF717F8114D00CA9CC8 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		2583BEF817F8114D00CA9CC8 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		2583BEF917F8114D00CA9CC8 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		2583BEFA17F8114D00CA9CC8 /* NSString+URLEscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEscape.h"; sourceTree = "<group>"; };
+		2583BEFB17F8114D00CA9CC8 /* NSString+URLEscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEscape.m"; sourceTree = "<group>"; };
 		259745FA17F7827900694B90 /* appchatlobby2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appchatlobby2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259745FD17F7827900694B90 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		259745FF17F7827900694B90 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,6 +125,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2583BEF517F8114D00CA9CC8 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				2583BEF617F8114D00CA9CC8 /* NSData+Base64.h */,
+				2583BEF717F8114D00CA9CC8 /* NSData+Base64.m */,
+				2583BEF817F8114D00CA9CC8 /* NSString+URLEncoding.h */,
+				2583BEF917F8114D00CA9CC8 /* NSString+URLEncoding.m */,
+				2583BEFA17F8114D00CA9CC8 /* NSString+URLEscape.h */,
+				2583BEFB17F8114D00CA9CC8 /* NSString+URLEscape.m */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
 		259745F117F7827900694B90 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +175,9 @@
 		2597460317F7827900694B90 /* appchatlobby2 */ = {
 			isa = PBXGroup;
 			children = (
+				2583BEF317F8114D00CA9CC8 /* ImgurAPI.h */,
+				2583BEF417F8114D00CA9CC8 /* ImgurAPI.m */,
+				2583BEF517F8114D00CA9CC8 /* modules */,
 				54F04ABE17F7C2360091238C /* camera@2x.png */,
 				54F04AB417F7A5800091238C /* eric.jpg */,
 				54B2208217F7CBE900CCB847 /* avatar-placeholder.png */,
@@ -308,12 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2583BEFE17F8114D00CA9CC8 /* NSString+URLEncoding.m in Sources */,
 				25A71B3B17F7986D006D9D3F /* InGameViewController.m in Sources */,
+				2583BEFF17F8114D00CA9CC8 /* NSString+URLEscape.m in Sources */,
 				25A71B3A17F7985C006D9D3F /* InitialScreenViewController.m in Sources */,
 				5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */,
+				2583BEFC17F8114D00CA9CC8 /* ImgurAPI.m in Sources */,
 				54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */,
 				2597461417F7827900694B90 /* ACLViewController.m in Sources */,
 				5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */,
+				2583BEFD17F8114D00CA9CC8 /* NSData+Base64.m in Sources */,
 				2597460A17F7827900694B90 /* main.m in Sources */,
 				2597460E17F7827900694B90 /* ACLAppDelegate.m in Sources */,
 			);

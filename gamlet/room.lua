@@ -5,6 +5,7 @@ tagged_list = {}
 location_map = {}
 conn_id_score_map = {}
 user_count = 0;
+conn_id_photo_map = {}
 
 function tablelength(T)
   local count = 0
@@ -131,6 +132,11 @@ gamooga.onmessage("scorereport", function(conn_id, s)
     if (tablelength(conn_id_score_map) == user_count) then
         gamooga.broadcast("scores", conn_id_score_map)
     end
+end)
+
+gamooga.onmessage("profilephoto", function(conn_id, s)
+    conn_id_photo_map[conn_id] = s
+    gamooga.broadcast("photorecv", s)
 end)
 
 --[[
