@@ -18,7 +18,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-    ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
+        ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
         gc = [appDelegate gc];
     }
     return self;
