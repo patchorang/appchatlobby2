@@ -457,8 +457,8 @@
 				GCC_PREFIX_HEADER = "appchatlobby2/appchatlobby2-Prefix.pch";
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"~/Developer/appchatlobby2/",
 					"$(inherited)",
-					"~/Documents/Projects/appchatlobby2",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -480,8 +480,8 @@
 				GCC_PREFIX_HEADER = "appchatlobby2/appchatlobby2-Prefix.pch";
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"~/Developer/appchatlobby2/",
 					"$(inherited)",
-					"~/Documents/Projects/appchatlobby2",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";

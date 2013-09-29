@@ -85,8 +85,8 @@
     //NSLog(@"%@", dict);
 
     actions = [dict objectForKey:@"actions"];
+    NSLog(@"%@", actions);
     [self runTimer];
-    //NSDictionary *jsonDict = [data JSONValue];
 }
 
 - (void)runTimer {

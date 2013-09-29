@@ -131,7 +131,7 @@
     [gc onErrorCallback:@selector(onError:) withTarget:self];
     
     // Connect to room
-    [gc connectToRoomWithAppId:670 andAppUuid:@"bcd7aa5c-289d-11e3-a291-f23c91df4bc1"];
+    [gc connectToRoomWithAppId:669 andAppUuid:@"d1ae1396-288c-11e3-ade8-f23c91df4bc1"];
 }
 
 - (IBAction)startGame:(id)sender {
