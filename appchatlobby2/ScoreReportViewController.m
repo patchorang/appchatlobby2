@@ -44,8 +44,8 @@
 }
 
 - (void) initGamoogaClient {
-    //[gc onMessageCallback:@selector(showFinalReport:) withTarget:self forType:@"scores"];
-    //[gc onMessageCallback:@selector(showFinalReportPhotos:) withTarget:self forType:@"photos"];
+    [gc onMessageCallback:@selector(showFinalReport:) withTarget:self forType:@"scores"];
+    [gc onMessageCallback:@selector(showFinalReportPhotos:) withTarget:self forType:@"photos"];
 }
 
 - (void)showFinalReport:(NSDictionary *)data {
@@ -66,17 +66,20 @@
             }
         }
     }
+//
+////    NSData *winImageData = [NSData dataWithContentsOfURL:[data objectForKey:maxId]];
+////    self.winnerImage.image = [UIImage imageWithData:winImageData];
+////    
+////    NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
+////    self.loserImage.image = [UIImage imageWithData:loseImageData];
+//
+    NSLog(@"%@ %@", minId, maxId);
+    NSInteger winScore = [[data objectForKey:maxId] integerValue];
+    NSInteger loseScore = [[data objectForKey:minId] integerValue];
+    [self.winnerScore setText:[NSString stringWithFormat:@"%d", winScore]];
+    //self.loserScore.text = loseScore;
+//    NSLog(@"%@, %@", winScore, loseScore);
     
-//    NSData *winImageData = [NSData dataWithContentsOfURL:[data objectForKey:maxId]];
-//    self.winnerImage.image = [UIImage imageWithData:winImageData];
-//    
-//    NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
-//    self.loserImage.image = [UIImage imageWithData:loseImageData];
-    
-    NSString *winScore = [data objectForKey:maxId];
-    NSString *loseScore = [data objectForKey:minId];
-    self.winnerScore.text = winScore;
-    self.loserScore.text = loseScore;
     
 }
 
@@ -98,12 +101,22 @@
         }
     }
     
-    NSData *winImageData = [NSData dataWithContentsOfURL:[data objectForKey:maxId]];
-    self.winnerImage.image = [UIImage imageWithData:winImageData];
-
-    NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
-    self.loserImage.image = [UIImage imageWithData:loseImageData];
+    NSLog(@"%@", [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:maxId]]]);
+    NSLog(@"%@", [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:minId]]]);
     
+    NSData *winImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:maxId]]];
+    //self.winnerImage.image = [UIImage imageWithData:winImageData];
+    [self.images addObject:[UIImage imageWithData:winImageData]];
+    
+    NSData *loseImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:minId]]];
+    //self.loserImage.image = [UIImage imageWithData:loseImageData];
+    
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:minId]]];
+    UIImage *otherImage = [UIImage imageWithData:imageData];
+    self.theimage.image = otherImage;
+    
+    [self.images addObject:[UIImage imageWithData:loseImageData]];
+    [self.scoreCollectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,6 +133,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ScoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"win cell" forIndexPath:indexPath];
+    NSLog(@"THe image is %@", [self.images objectAtIndex:indexPath.row]);
+    cell.imageView.image = [self.images objectAtIndex:indexPath.row];
     return cell;
 }
 

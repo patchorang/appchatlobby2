@@ -15,6 +15,9 @@
     NSString *maxId;
     NSString *minId;
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *theimage;
+@property (strong, nonatomic) NSMutableArray *images;
 @property (weak, nonatomic) IBOutlet UIImageView *winnerImage;
 @property (weak, nonatomic) IBOutlet UILabel *winnerScore;
 @property (weak, nonatomic) IBOutlet UIImageView *loserImage;
