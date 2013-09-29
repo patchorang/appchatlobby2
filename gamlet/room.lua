@@ -22,6 +22,65 @@ function gettopplayers()
     return tagged_id_to_count
 end
 
+function generateScript()
+
+    script = "\"actions\": [{\"action\": \"spin\", \"time\":\"10\"}"
+
+    num_actions = math.random(5, 8)
+    for i = 1, num_actions do
+        script = script..", "..getActionDescriptor()
+    end
+
+    script = script.."]"
+
+    return jsonify(script)
+end
+
+function jsonify(string)
+    return "{"..string.."}"
+end 
+
+function getActionDescriptor()
+
+    action = getAction()
+    modifer = getModifier()
+    time = getTime(action)
+    print(action)
+
+    action_descriptor = "\"action\": \""..action.."\", \"time\": \""..time.."\""
+    if modifer ~= "" then
+        action_descriptor = action_descriptor..", \"modifer\": \""..modifer.."\""
+    end
+
+    return jsonify(action_descriptor);
+end
+
+function getAction()
+    actions = {"crawl", "run", "hop", "somersault", "roll", "freeze"}
+    return actions[math.random(6)];
+end
+
+function getModifier()
+    modifiers = {"hold", "tap", "", "", "", ""}
+    return modifiers[math.random(6)];
+end
+
+function getTime(action)
+    if action == "crawl" then 
+        return math.random(4, 10)
+    elseif action == "run" then
+        return math.random(4, 10)
+    elseif action == "hop" then
+        return math.random(3, 6)
+    elseif action == "somersault" then
+        return math.random(4, 7)
+    elseif action == "roll" then    
+        return math.random(3, 6)
+    elseif action == "freeze" then    
+        return math.random(2, 4)
+    end
+end
+
 --[[
 On user connect, send him the list of online users in a 
 message of type "userlist".
@@ -38,8 +97,6 @@ his nick to all the users.
 info_string format is 'username playerId'
 ]]
 gamooga.onmessage("mynick", function(conn_id, s)
-
-
     user_info = {}
     for word in s:gmatch("%w+") do table.insert(user_info, word) end
 
@@ -53,6 +110,10 @@ gamooga.onmessage("mynick", function(conn_id, s)
 
     online_user_list[username] = true
     gamooga.broadcast("userjoin", username)
+end)
+
+gamooga.onmessage("getscript", function(conn_id, s)
+    gamooga.broadcast("script", generateScript())
 end)
 
 --[[
@@ -117,6 +178,13 @@ gamooga.onmessage("locationupdate", function(conn_id, s)
     location_map[senderid] = s
 
     gamooga.broadcast("locationsupdate", {ol=location_map})
+end)
+
+--[[
+Sends start game message to all users
+]]
+gamooga.onmessage("start", function(conn_id, s)
+     gamooga.broadcast("startgame", "startgame")
 end)
 
 --[[
