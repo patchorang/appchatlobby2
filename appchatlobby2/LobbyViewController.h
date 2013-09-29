@@ -30,4 +30,6 @@
 
 - (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId;
 
+@property (weak, nonatomic) IBOutlet UIButton *startGameButton;
+
 @end

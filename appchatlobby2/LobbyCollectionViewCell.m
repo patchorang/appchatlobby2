@@ -29,13 +29,17 @@
     CGContextAddEllipseInRect(ctx, rect);
     CGContextSetFillColor(ctx, CGColorGetComponents([[UIColor blueColor] CGColor]));
     CGContextFillPath(ctx);*/
-    self.layer.cornerRadius = self.frame.size.height/2.0;
-    self.layer.borderWidth = 0.5f;
-    self.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
+    //self.layer.cornerRadius = self.frame.size.height/2.0;
+    //self.layer.borderWidth = 1;
+    //self.layer.borderColor = [[UIColor whiteColor] CGColor];//[[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
+    
+    self.backgroundView.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
+    self.backgroundView.layer.borderWidth = 0.5;
+    self.backgroundView.layer.cornerRadius = 4;
     
     self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width/2.0;
-    self.avatarImageView.layer.borderWidth = 5;
-    self.avatarImageView.layer.borderColor = [[UIColor whiteColor] CGColor];//[[UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0] CGColor];
+    self.avatarImageView.layer.borderWidth = 0.5;
+    self.avatarImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];//[[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     self.avatarImageView.clipsToBounds = YES;
 }
 

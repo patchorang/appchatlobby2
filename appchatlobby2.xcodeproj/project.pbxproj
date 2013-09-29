@@ -28,9 +28,11 @@
 		25A71B3F17F7A92A006D9D3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A71B3E17F7A92A006D9D3F /* CoreLocation.framework */; };
 		5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D317F78A02003DFC79 /* LobbyViewController.m */; };
 		5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */; };
+		54B2208317F7CBE900CCB847 /* avatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B2208217F7CBE900CCB847 /* avatar-placeholder.png */; };
 		54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */; };
-		54F04AB117F7A24B0091238C /* avatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F04AB017F7A24B0091238C /* avatar-placeholder.png */; };
 		54F04AB517F7A5800091238C /* eric.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54F04AB417F7A5800091238C /* eric.jpg */; };
+		54F04AB717F7BD580091238C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F04AB617F7BD580091238C /* AVFoundation.framework */; };
+		54F04ABF17F7C2360091238C /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F04ABE17F7C2360091238C /* camera@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +77,12 @@
 		5427E1D617F78A14003DFC79 /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreReportViewController.h; sourceTree = "<group>"; };
 		5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreReportViewController.m; sourceTree = "<group>"; };
+		54B2208217F7CBE900CCB847 /* avatar-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-placeholder.png"; sourceTree = "<group>"; };
 		54F04AAD17F79EE40091238C /* LobbyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyCollectionViewCell.h; sourceTree = "<group>"; };
 		54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyCollectionViewCell.m; sourceTree = "<group>"; };
-		54F04AB017F7A24B0091238C /* avatar-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-placeholder.png"; sourceTree = "<group>"; };
 		54F04AB417F7A5800091238C /* eric.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eric.jpg; sourceTree = "<group>"; };
+		54F04AB617F7BD580091238C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		54F04ABE17F7C2360091238C /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F04AB717F7BD580091238C /* AVFoundation.framework in Frameworks */,
 				25A71B3F17F7A92A006D9D3F /* CoreLocation.framework in Frameworks */,
 				25A71B3D17F7A51A006D9D3F /* CoreMotion.framework in Frameworks */,
 				2597460017F7827900694B90 /* CoreGraphics.framework in Frameworks */,
@@ -130,6 +135,7 @@
 		259745FC17F7827900694B90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54F04AB617F7BD580091238C /* AVFoundation.framework */,
 				25A71B3E17F7A92A006D9D3F /* CoreLocation.framework */,
 				25A71B3C17F7A51A006D9D3F /* CoreMotion.framework */,
 				2597463217F78C2000694B90 /* libgamoogaclient.a */,
@@ -144,8 +150,9 @@
 		2597460317F7827900694B90 /* appchatlobby2 */ = {
 			isa = PBXGroup;
 			children = (
+				54F04ABE17F7C2360091238C /* camera@2x.png */,
 				54F04AB417F7A5800091238C /* eric.jpg */,
-				54F04AB017F7A24B0091238C /* avatar-placeholder.png */,
+				54B2208217F7CBE900CCB847 /* avatar-placeholder.png */,
 				2597460C17F7827900694B90 /* ACLAppDelegate.h */,
 				2597460D17F7827900694B90 /* ACLAppDelegate.m */,
 				2597460F17F7827900694B90 /* Main.storyboard */,
@@ -277,11 +284,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54F04AB117F7A24B0091238C /* avatar-placeholder.png in Resources */,
+				54B2208317F7CBE900CCB847 /* avatar-placeholder.png in Resources */,
 				54F04AB517F7A5800091238C /* eric.jpg in Resources */,
 				2597461617F7827900694B90 /* Images.xcassets in Resources */,
 				2597460817F7827900694B90 /* InfoPlist.strings in Resources */,
 				2597461117F7827900694B90 /* Main.storyboard in Resources */,
+				54F04ABF17F7C2360091238C /* camera@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

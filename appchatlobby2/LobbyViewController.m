@@ -43,6 +43,14 @@
     [self initGamoogaClient];
     
     messages = [[NSMutableArray alloc] init];
+    
+    // Ugly UI Shit
+    // This is gross.
+    self.startGameButton.layer.borderWidth = 0.5;
+    self.startGameButton.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
+    self.startGameButton.layer.cornerRadius = 4.0;
+    
+    [self.navigationItem setHidesBackButton:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
