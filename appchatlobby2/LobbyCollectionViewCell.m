@@ -29,7 +29,7 @@
     CGContextAddEllipseInRect(ctx, rect);
     CGContextSetFillColor(ctx, CGColorGetComponents([[UIColor blueColor] CGColor]));
     CGContextFillPath(ctx);*/
-    self.layer.cornerRadius = 4;
+    self.layer.cornerRadius = 2;
     self.layer.borderWidth = 0.5;
     self.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     

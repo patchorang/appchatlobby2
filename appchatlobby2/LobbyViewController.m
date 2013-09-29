@@ -48,9 +48,14 @@
     // This is gross.
     self.startGameButton.layer.borderWidth = 0.5;
     self.startGameButton.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
-    self.startGameButton.layer.cornerRadius = 4.0;
+    self.startGameButton.layer.cornerRadius = 2;
     
-    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+    self.lobbyCollectionView.layer.cornerRadius = 4;
+    self.lobbyCollectionView.layer.shadowColor = [[UIColor colorWithRed:100.0/255.0 green:100.0/255.0 blue:100.0/255.0 alpha:1.0] CGColor];
+    self.lobbyCollectionView.layer.shadowOpacity = 0.7;
+    self.lobbyCollectionView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.lobbyCollectionView.layer.shadowRadius = 1.5;
 }
 
 - (void)viewWillAppear:(BOOL)animated

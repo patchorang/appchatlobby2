@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <AVFoundation/AVFoundation.h>
+#import <ImageIO/ImageIO.h>
 #import "GamoogaClient.h"
 
 
