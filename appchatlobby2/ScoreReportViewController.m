@@ -120,6 +120,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ScoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"win cell" forIndexPath:indexPath];
+    cell.rankLabel.text = [NSString stringWithFormat:@"%d",indexPath.item+1];
     return cell;
 }
 

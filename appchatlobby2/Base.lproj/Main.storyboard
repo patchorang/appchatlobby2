@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CdN-zt-JwJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CdN-zt-JwJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -366,10 +366,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jFS-UE-DyC">
-                                <rect key="frame" x="20" y="20" width="161" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRf-N8-Wv7">
                                 <rect key="frame" x="20" y="232" width="161" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -456,7 +452,6 @@
                         <outlet property="loserImage" destination="xRf-N8-Wv7" id="cII-3Q-UOr"/>
                         <outlet property="loserScore" destination="1JC-eZ-CH8" id="kBI-lc-cY5"/>
                         <outlet property="scoreCollectionView" destination="hoa-9m-Qdy" id="L3r-ie-MzQ"/>
-                        <outlet property="winnerImage" destination="jFS-UE-DyC" id="jOQ-cY-QVF"/>
                         <outlet property="winnerScore" destination="bKD-7h-4TF" id="q6R-Lk-Pgu"/>
                     </connections>
                 </viewController>

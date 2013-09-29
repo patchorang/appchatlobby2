@@ -310,7 +310,6 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil];
 		[alertView show];
-        //		[self teardownAVCapture];
 	}
 }
 
@@ -548,7 +547,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     // If no face or features are present, play sound
     if (!self.features || self.features.count == 0) {
-        AudioServicesPlaySystemSound (1103); // Keyboard click
+        AudioServicesPlaySystemSound (1312); // Keyboard click
         AudioServicesPlaySystemSound (4095); // Vibrate
     }
 	
