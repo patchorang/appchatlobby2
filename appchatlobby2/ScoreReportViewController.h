@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GamoogaClient.h"
 
-@interface ScoreReportViewController : UIViewController
+@interface ScoreReportViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
     GamoogaClient *gc;
     NSString *maxId;
@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *winnerScore;
 @property (weak, nonatomic) IBOutlet UIImageView *loserImage;
 @property (weak, nonatomic) IBOutlet UILabel *loserScore;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *scoreCollectionView;
 
 @end

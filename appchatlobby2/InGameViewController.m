@@ -47,11 +47,6 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    documentsPath = [directories lastObject];
-    documentsPath = [NSString stringWithFormat:@"%@/movie.mov",documentsPath];
-    NSLog(documentsPath);
-    
     [self becomeFirstResponder];
     [self initGamoogaClient];
     [gc sendMessage:[NSString stringWithFormat:@""] withType:@"getscript"];
@@ -73,6 +68,17 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	self.borderImage = [UIImage imageNamed:@"border"];
 	NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
 	self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
+    
+    self.containerView.layer.cornerRadius = 4;
+    self.shadowView.layer.cornerRadius = 4;
+    self.shadowView.layer.shadowColor = [[UIColor colorWithRed:100.0/255.0 green:100.0/255.0 blue:100.0/255.0 alpha:1.0] CGColor];
+    self.shadowView.layer.shadowOpacity = 0.7;
+    self.shadowView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.shadowView.layer.shadowRadius = 1.5;
+    
+    self.previewView.layer.cornerRadius = 2;
+    self.previewView.layer.borderWidth = 0.5;
+    self.previewView.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
 }
 
 
@@ -138,7 +144,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     if(curSeconds < totalTime ){
         int blahtime = [self timeTill:curSeconds];
         if ([lookup objectForKey:[NSNumber numberWithInt:curSeconds]] != nil) {
-            self.actionLabel.text = [NSString stringWithFormat:@"%@ : %d",[lookup objectForKey:[NSNumber numberWithInt:curSeconds]], blahtime];
+            self.actionLabel.text = [lookup objectForKey:[NSNumber numberWithInt:curSeconds]];
         }
         curSeconds++ ;
         self.timerLabel.text = [NSString stringWithFormat:@"%d", [self timeTill:curSeconds]];  //[NSString stringWithFormat:@"%d", curSeconds];
@@ -557,13 +563,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             forVideoBox:cleanAperture 
             orientation:curDeviceOrientation];
 	});
-}
-
-- (void)playSound {
-    SystemSoundID completeSound;
-    NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"downloadCompleted" withExtension:@"aiff"];
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
-    AudioServicesPlaySystemSound (completeSound);
 }
 
 @end

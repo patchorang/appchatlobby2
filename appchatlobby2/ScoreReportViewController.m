@@ -8,6 +8,7 @@
 
 #import "ScoreReportViewController.h"
 #import "ACLAppDelegate.h"
+#import "ScoreCollectionViewCell.h"
 
 @interface ScoreReportViewController ()
 
@@ -33,6 +34,12 @@
     
     [self initGamoogaClient];
     [gc sendMessage:@"getscorereport" withType:@"getscorereport"];
+    
+    self.scoreCollectionView.layer.cornerRadius = 4;
+    self.scoreCollectionView.layer.shadowColor = [[UIColor colorWithRed:100.0/255.0 green:100.0/255.0 blue:100.0/255.0 alpha:1.0] CGColor];
+    self.scoreCollectionView.layer.shadowOpacity = 0.7;
+    self.scoreCollectionView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.scoreCollectionView.layer.shadowRadius = 1.5;
 
 }
 
@@ -96,12 +103,29 @@
 
     NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
     self.loserImage.image = [UIImage imageWithData:loseImageData];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ScoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"win cell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(260.0, (self.scoreCollectionView.frame.size.height/2.0)-15);
 }
 
 @end
