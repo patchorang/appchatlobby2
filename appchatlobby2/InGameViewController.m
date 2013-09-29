@@ -37,6 +37,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         // Custom initialization
         ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
         gc = [appDelegate gc];
+        self.features = [NSArray array];
     }
     return self;
 }
@@ -88,9 +89,11 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
     double gyroVector = sqrt(pow(rotation.x, 2) + pow(rotation.x, 2) + pow(rotation.x, 2));
     if (gyroVector > .5){
-        score += gyroVector;
+        if (self.features && !self.features.count == 0) {
+            score += gyroVector;
+        }
     }
-    
+
     scoreLabel.text = [NSString stringWithFormat:@"%d", ((int)score)/10];
 }
 
@@ -126,15 +129,16 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
                 totalTime = count;
             }
         }
-
+        NSLog(@"%@", lookup);
         [self countdownTimer];
     }
 }
 
 - (void)updateCounter:(NSTimer *)theTimer {
     if(curSeconds < totalTime ){
+        int blahtime = [self timeTill:curSeconds];
         if ([lookup objectForKey:[NSNumber numberWithInt:curSeconds]] != nil) {
-            self.actionLabel.text = [NSString stringWithFormat:@"%@ : %d",[lookup objectForKey:[NSNumber numberWithInt:curSeconds]], [self timeTill:curSeconds]];
+            self.actionLabel.text = [NSString stringWithFormat:@"%@ : %d",[lookup objectForKey:[NSNumber numberWithInt:curSeconds]], blahtime];
         }
         curSeconds++ ;
         self.timerLabel.text = [NSString stringWithFormat:@"%d", [self timeTill:curSeconds]];  //[NSString stringWithFormat:@"%d", curSeconds];
@@ -145,14 +149,14 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             NSLog(@"Final Score is: %f", score);
 
             [gc sendMessage:[NSString stringWithFormat:@"%f", score] withType:@"scorereport"];
-            
+            [self performSegueWithIdentifier:@"finishGame" sender:self];
             curSeconds = 16925;
         }
     }
 }
 
 - (void)countdownTimer{
-    curSeconds = 0;
+    curSeconds = 1;
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
@@ -163,6 +167,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     for (id key in lookup) {
         int curNum = [key integerValue];
         if (curNum - currentTime < smallestDiff && curNum - currentTime >= 0) {
+            //NSLog(@"%d", curNum - currentTime);
+
             smallestDiff = curNum - currentTime;
         }
     }
@@ -531,11 +537,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	imageOptions = [NSDictionary dictionaryWithObject:[self exifOrientation:curDeviceOrientation]
                                                forKey:CIDetectorImageOrientation];
     
-	NSArray *features = [self.faceDetector featuresInImage:ciImage
+	 self.features = [self.faceDetector featuresInImage:ciImage
                                                    options:imageOptions];
     
     // If no face or features are present, play sound
-    if (!features || features.count == 0) {
+    if (!self.features || self.features.count == 0) {
         AudioServicesPlaySystemSound (1103); // Keyboard click
         AudioServicesPlaySystemSound (4095); // Vibrate
     }
@@ -547,7 +553,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	CGRect cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
 	
 	dispatch_async(dispatch_get_main_queue(), ^(void) {
-		[self drawFaces:features
+		[self drawFaces:self.features
             forVideoBox:cleanAperture 
             orientation:curDeviceOrientation];
 	});

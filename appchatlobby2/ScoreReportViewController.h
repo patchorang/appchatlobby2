@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GamoogaClient.h"
 
 @interface ScoreReportViewController : UIViewController
+{
+    GamoogaClient *gc;
+    NSString *maxId;
+    NSString *minId;
+}
+@property (weak, nonatomic) IBOutlet UIImageView *winnerImage;
+@property (weak, nonatomic) IBOutlet UILabel *winnerScore;
+@property (weak, nonatomic) IBOutlet UIImageView *loserImage;
+@property (weak, nonatomic) IBOutlet UILabel *loserScore;
 
 @end

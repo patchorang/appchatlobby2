@@ -7,6 +7,7 @@
 //
 
 #import "ScoreReportViewController.h"
+#import "ACLAppDelegate.h"
 
 @interface ScoreReportViewController ()
 
@@ -14,11 +15,13 @@
 
 @implementation ScoreReportViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
+        ACLAppDelegate *appDelegate = (ACLAppDelegate *)[[UIApplication sharedApplication] delegate];
+        gc = [appDelegate gc];
     }
     return self;
 }
@@ -27,6 +30,72 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self initGamoogaClient];
+    [gc sendMessage:@"getscorereport" withType:@"getscorereport"];
+
+}
+
+- (void) initGamoogaClient {
+    [gc onMessageCallback:@selector(showFinalReport:) withTarget:self forType:@"scores"];
+    [gc onMessageCallback:@selector(showFinalReportPhotos:) withTarget:self forType:@"photos"];
+}
+
+- (void)showFinalReport:(NSDictionary *)data {
+    NSLog(@"Show final %@", data);
+    int firstVal = -1;
+    NSString *firstKey = @"";
+    for(id key in data) {
+        if (firstVal == -1) {
+            firstVal = [[data objectForKey:key] intValue];
+            firstKey = key;
+        } else {
+            if (firstVal > [[data objectForKey:key] intValue]) {
+                maxId = firstKey;
+                minId = key;
+            } else {
+                minId = firstKey;
+                maxId = key;
+            }
+        }
+    }
+    
+//    NSData *winImageData = [NSData dataWithContentsOfURL:[data objectForKey:maxId]];
+//    self.winnerImage.image = [UIImage imageWithData:winImageData];
+//    
+//    NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
+//    self.loserImage.image = [UIImage imageWithData:loseImageData];
+    
+    NSString *winScore = [data objectForKey:maxId];
+    NSString *loseScore = [data objectForKey:minId];
+    self.winnerScore.text = winScore;
+    self.loserScore.text = loseScore;
+    
+}
+
+- (void)showFinalReportPhotos:(NSDictionary *)data {
+    int firstVal = -1;
+    NSString *firstKey = @"";
+    for(id key in data) {
+        if (firstVal == -1) {
+            firstVal = [[data objectForKey:key] intValue];
+            firstKey = key;
+        } else {
+            if (firstVal > [[data objectForKey:key] intValue]) {
+                maxId = firstKey;
+                minId = key;
+            } else {
+                minId = firstKey;
+                maxId = key;
+            }
+        }
+    }
+    
+    NSData *winImageData = [NSData dataWithContentsOfURL:[data objectForKey:maxId]];
+    self.winnerImage.image = [UIImage imageWithData:winImageData];
+
+    NSData *loseImageData = [NSData dataWithContentsOfURL:[data objectForKey:minId]];
+    self.loserImage.image = [UIImage imageWithData:loseImageData];
 }
 
 - (void)didReceiveMemoryWarning

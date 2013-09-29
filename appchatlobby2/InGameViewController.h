@@ -34,6 +34,7 @@ double currentMaxRotZ;
     NSTimer *timer;
 }
 
+@property (strong, nonatomic) NSArray *features;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
