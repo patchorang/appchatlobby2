@@ -10,4 +10,6 @@
 
 @interface LobbyCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
 @end

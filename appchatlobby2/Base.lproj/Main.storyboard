@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2dS-hy-PzJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UgV-67-RlK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elJ-cc-y9r">
@@ -52,27 +52,48 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="GmQ-Wu-sfW">
-                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="itemSize" width="280" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                    <inset key="sectionInset" minX="10" minY="20" maxX="10" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="lobby cell" id="6fE-Eo-Kwh" customClass="LobbyCollectionViewCell">
-                                        <rect key="frame" x="60" y="20" width="200" height="200"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="GeT-xr-bCf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eric.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GeT-xr-bCf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="SJ9-X7-kol"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDz-Gs-QqI">
+                                                    <rect key="frame" x="158" y="0.0" width="122" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="BDz-Gs-QqI" firstAttribute="leading" secondItem="GeT-xr-bCf" secondAttribute="trailing" constant="8" symbolic="YES" id="6hM-t2-6lx"/>
+                                            <constraint firstAttribute="trailing" secondItem="BDz-Gs-QqI" secondAttribute="trailing" id="CxU-uA-CtM"/>
+                                            <constraint firstItem="GeT-xr-bCf" firstAttribute="top" secondItem="6fE-Eo-Kwh" secondAttribute="top" id="Npg-Gm-e3i"/>
+                                            <constraint firstItem="BDz-Gs-QqI" firstAttribute="bottom" secondItem="GeT-xr-bCf" secondAttribute="bottom" id="QtH-51-jIc"/>
+                                            <constraint firstItem="BDz-Gs-QqI" firstAttribute="top" secondItem="GeT-xr-bCf" secondAttribute="top" id="TLW-iF-cSL"/>
+                                            <constraint firstAttribute="bottom" secondItem="GeT-xr-bCf" secondAttribute="bottom" id="Uwc-QT-xdi"/>
+                                            <constraint firstItem="GeT-xr-bCf" firstAttribute="leading" secondItem="6fE-Eo-Kwh" secondAttribute="leading" id="Zgp-Lb-Y3G"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="GeT-xr-bCf" id="yBW-F1-mFD"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -80,6 +101,13 @@
                                     <outlet property="delegate" destination="rra-CT-r9F" id="0rj-V8-TnN"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFj-9O-hfd">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Start Game" width="320" style="plain" id="KPe-qt-znZ"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -133,9 +161,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CdN-zt-JwJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W5g-SI-Ua2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="W5g-SI-Ua2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -148,7 +177,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar-placeholder.png" width="1000" height="1000"/>
+        <image name="eric.jpg" width="720" height="720"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
