@@ -3,6 +3,8 @@ conn_name_map = {}
 online_user_list = {}
 tagged_list = {}
 location_map = {}
+conn_id_score_map = {}
+user_count = 0;
 
 function tablelength(T)
   local count = 0
@@ -26,7 +28,8 @@ function generateScript()
 
     script = "\"actions\": [{\"action\": \"spin\", \"time\":\"10\"}"
 
-    num_actions = math.random(5, 8)
+    --num_actions = math.random(5, 8)
+    num_actions = 2
     for i = 1, num_actions do
         script = script..", "..getActionDescriptor()
     end
@@ -81,12 +84,19 @@ function getTime(action)
     end
 end
 
+function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
+end
+
 --[[
 On user connect, send him the list of online users in a 
 message of type "userlist".
 ]]
 gamooga.onconnect(function(conn_id)
     --gamooga.send(conn_id, "userlist", {ol=online_user_list})
+    user_count = user_count + 1;
     gamooga.send(conn_id, "userlist", {ol=conn_name_map})
 end)
 
@@ -114,6 +124,13 @@ end)
 
 gamooga.onmessage("getscript", function(conn_id, s)
     gamooga.broadcast("script", generateScript())
+end)
+
+gamooga.onmessage("scorereport", function(conn_id, s)
+    conn_id_score_map[conn_id] = tonumber(s)
+    if (tablelength(conn_id_score_map) == user_count) then
+        gamooga.broadcast("scores", conn_id_score_map)
+    end
 end)
 
 --[[

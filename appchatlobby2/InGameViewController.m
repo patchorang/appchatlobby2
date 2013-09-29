@@ -73,6 +73,13 @@
 
 - (void) initGamoogaClient {
     [gc onMessageCallback:@selector(processScript:) withTarget:self forType:@"script"];
+    [gc onMessageCallback:@selector(goToScores:) withTarget:self forType:@"scores"];
+}
+
+- (void) goToScores:(NSString *)data
+{
+    NSLog(@"DATA: %@", data);
+    [self performSegueWithIdentifier:@"finishGame" sender:self];
 }
 
 - (void) processScript:(NSString *)data {
@@ -108,11 +115,13 @@
         self.timerLabel.text = [NSString stringWithFormat:@"%d", [self timeTill:curSeconds]];  //[NSString stringWithFormat:@"%d", curSeconds];
     }
     else{
-        NSLog(@"Final Score is: %f", score);
         if (!done) {
             done = YES;
+            NSLog(@"Final Score is: %f", score);
+
+            [gc sendMessage:[NSString stringWithFormat:@"%f", score] withType:@"scorereport"];
+            
             curSeconds = 16925;
-            [self performSegueWithIdentifier:@"finishGame" sender:self];
         }
     }
 }
