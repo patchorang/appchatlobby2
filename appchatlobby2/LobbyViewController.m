@@ -169,11 +169,12 @@
 }
 
 - (void) photoRecv:(NSString *)data {
-    NSLog(@"phot recv");
-    NSLog(@"%@", data);
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:data]];
-    UIImage *otherImage = [UIImage imageWithData:imageData];
-    [self.pictures addObject:otherImage];
+    if (![data isEqualToString:self.photoUrl]) {
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:data]];
+        UIImage *otherImage = [UIImage imageWithData:imageData];
+        [self.pictures addObject:otherImage];
+        [self.lobbyCollectionView reloadData];
+    }
 }
 
 - (void) onUserjoin:(NSString *)data {
@@ -181,8 +182,14 @@
 }
 
 - (void) onUserlist:(NSDictionary *)data {
+    NSLog(@"On user list %@", data);
     for (NSString *user in (NSArray *)[data objectForKey:@"ol"]) {
-        [self addItem:[[data objectForKey:@"ol"] objectForKey:user]];
+        NSString *url = [[data objectForKey:@"ol"] objectForKey:user];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        UIImage *otherImage = [UIImage imageWithData:imageData];
+        [self.pictures addObject:otherImage];
+        [self.lobbyCollectionView reloadData];
+        //[self addItem:[[data objectForKey:@"ol"] objectForKey:user]];
     }
 }
 
