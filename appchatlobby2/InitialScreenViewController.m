@@ -33,25 +33,33 @@
     
     [self.joinLobbyButton setEnabled:NO];
     
-    self.faceScanView.backgroundColor = [UIColor clearColor];
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.cardContainer.layer.cornerRadius = 4;
+    self.cardContainer.layer.shadowColor = [[UIColor colorWithRed:100.0/255.0 green:100.0/255.0 blue:100.0/255.0 alpha:1.0] CGColor];
+    self.cardContainer.layer.shadowOpacity = 0.7;
+    self.cardContainer.layer.shadowOffset = CGSizeMake(0, 0);
+    self.cardContainer.layer.shadowRadius = 1.5;
+    
+    //self.faceScanView.backgroundColor = [UIColor clearColor];
     self.faceScanView.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     self.faceScanView.layer.borderWidth = 0.5;
-    self.faceScanView.layer.cornerRadius = 4;
+    self.faceScanView.layer.cornerRadius = 2;
     
-    self.takePictureButton.backgroundColor = [UIColor clearColor];
+    //self.takePictureButton.backgroundColor = [UIColor clearColor];
     self.takePictureButton.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     self.takePictureButton.layer.borderWidth = 0.5;
-    self.takePictureButton.layer.cornerRadius = 4;
+    self.takePictureButton.layer.cornerRadius = 2;
     
-    self.faceImageOutputImageView.backgroundColor = [UIColor clearColor];
+    //self.faceImageOutputImageView.backgroundColor = [UIColor clearColor];
     self.faceImageOutputImageView.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     self.faceImageOutputImageView.layer.borderWidth = 0.5;
-    self.faceImageOutputImageView.layer.cornerRadius = 4;
+    self.faceImageOutputImageView.layer.cornerRadius = 2;
     
-    self.joinLobbyButton.backgroundColor = [UIColor clearColor];
+    //self.joinLobbyButton.backgroundColor = [UIColor clearColor];
     self.joinLobbyButton.layer.borderColor = [[UIColor colorWithRed:163.0/255.0 green:163.0/255.0 blue:163.0/255.0 alpha:1.0] CGColor];
     self.joinLobbyButton.layer.borderWidth = 0.5;
-    self.joinLobbyButton.layer.cornerRadius = 4;
+    self.joinLobbyButton.layer.cornerRadius = 2;
 }
 
 - (AVCaptureDevice *)frontCamera {
@@ -136,6 +144,7 @@
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
          self.faceImage = [[UIImage alloc] initWithData:imageData];
          self.faceImageOutputImageView.image = self.faceImage;
+         self.faceImageOutputImageView.transform = CGAffineTransformMakeScale(-1, 1);
          
          [self.joinLobbyButton setEnabled:YES];
          self.joinLobbyButton.backgroundColor = [UIColor colorWithRed:122.0/255.0 green:188.0/255.0 blue:122.0/255.0 alpha:1.0];

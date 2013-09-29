@@ -11,6 +11,5 @@
 @interface LobbyCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (strong, nonatomic) IBOutlet UIView *backgroundView;
 
 @end

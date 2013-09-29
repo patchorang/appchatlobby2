@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *faceImageOutputImageView;
 @property (strong, nonatomic) NSTimer *faceImageTimer;
 @property (weak, nonatomic) IBOutlet UIButton *joinLobbyButton;
+@property (weak, nonatomic) IBOutlet UIView *cardContainer;
 
 @end
