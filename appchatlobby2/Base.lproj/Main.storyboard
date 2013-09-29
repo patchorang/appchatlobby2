@@ -174,7 +174,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kaQ-tr-2uc" kind="push" id="D0Z-Pm-AyE"/>
+                                    <action selector="startGame:" destination="rra-CT-r9F" eventType="touchUpInside" id="ceE-Rm-4dN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -193,7 +193,8 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="nNm-YU-hxy"/>
                     <connections>
-                        <outlet property="startGameButton" destination="nIB-Xz-e4F" id="5Oy-LF-S0w"/>
+                        <outlet property="startGameButton" destination="nIB-Xz-e4F" id="EiQ-bj-qWb"/>
+                        <segue destination="kaQ-tr-2uc" kind="push" identifier="startGame" id="9f9-RN-9mr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ei3-Hw-6gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +242,7 @@
                         <outlet property="actionLabel" destination="RYC-Hn-hax" id="Mhk-wq-rFa"/>
                         <outlet property="scoreLabel" destination="gmz-IT-eMe" id="aof-R6-Nte"/>
                         <outlet property="timerLabel" destination="RoJ-6H-cam" id="8Au-tT-Tgf"/>
+                        <segue destination="gku-63-0jn" kind="push" identifier="finishGame" id="Kbp-TW-RBG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Kr-J0-ILq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,7 +258,7 @@
                         <viewControllerLayoutGuide type="bottom" id="948-Hx-hep"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GnE-Vz-Qib">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

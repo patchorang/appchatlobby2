@@ -21,10 +21,15 @@ double currentMaxRotZ;
 
 @interface InGameViewController : UIViewController
 {
-    int secondsLeft;
+    BOOL done;
+    int curSeconds;
+    int secondsBelow;
+    int totalTime;
     BOOL countingDown;
     GamoogaClient *gc;
-    NSArray *actions;
+    NSArray *actions; // action and time
+    NSMutableDictionary *lookup; // time -> action
+    NSTimer *timer;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
