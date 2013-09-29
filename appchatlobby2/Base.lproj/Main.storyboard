@@ -242,26 +242,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="518"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0e-Lc-vyg">
-                                                <rect key="frame" x="10" y="78" width="260" height="362"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0e-Lc-vyg">
+                                                <rect key="frame" x="10" y="84" width="260" height="350"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1245" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmz-IT-eMe">
-                                                <rect key="frame" x="0.0" y="448" width="280" height="70"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1245" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmz-IT-eMe">
+                                                <rect key="frame" x="0.0" y="442" width="280" height="76"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="513-no-Sg9">
-                                                <rect key="frame" x="0.0" y="34" width="140" height="36"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Spin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="513-no-Sg9">
+                                                <rect key="frame" x="0.0" y="34" width="140" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZM-7u-hvW">
-                                                <rect key="frame" x="140" y="34" width="140" height="36"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZM-7u-hvW">
+                                                <rect key="frame" x="140" y="34" width="140" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                 <nil key="highlightedColor"/>
@@ -393,46 +393,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="win cell" id="WbN-3L-XfD" customClass="ScoreCollectionViewCell">
-                                        <rect key="frame" x="10" y="10" width="260" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPf-L1-1nq">
-                                                    <rect key="frame" x="20" y="0.0" width="42" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="OCj-QR-EIg"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="scS-PG-eUJ">
-                                                    <rect key="frame" x="70" y="0.0" width="190" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="scS-PG-eUJ" firstAttribute="top" secondItem="WbN-3L-XfD" secondAttribute="top" id="4Zv-xw-bYK"/>
-                                            <constraint firstItem="scS-PG-eUJ" firstAttribute="leading" secondItem="XPf-L1-1nq" secondAttribute="trailing" constant="8" symbolic="YES" id="C6Q-BC-MRK"/>
-                                            <constraint firstAttribute="bottom" secondItem="scS-PG-eUJ" secondAttribute="bottom" id="EZC-C0-4Av"/>
-                                            <constraint firstItem="XPf-L1-1nq" firstAttribute="leading" secondItem="WbN-3L-XfD" secondAttribute="leading" constant="20" id="Oyw-em-85P"/>
-                                            <constraint firstItem="XPf-L1-1nq" firstAttribute="bottom" secondItem="scS-PG-eUJ" secondAttribute="bottom" id="RC2-Nt-qrS"/>
-                                            <constraint firstItem="scS-PG-eUJ" firstAttribute="top" secondItem="XPf-L1-1nq" secondAttribute="top" id="s5y-Ud-NsT"/>
-                                            <constraint firstAttribute="trailing" secondItem="scS-PG-eUJ" secondAttribute="trailing" id="z7U-mH-iBS"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="scS-PG-eUJ" id="zhZ-Ep-MHH"/>
-                                            <outlet property="rankLabel" destination="XPf-L1-1nq" id="n2q-el-m9n"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="gku-63-0jn" id="vZi-Vc-Cl1"/>
                                     <outlet property="delegate" destination="gku-63-0jn" id="nVB-wH-CXw"/>

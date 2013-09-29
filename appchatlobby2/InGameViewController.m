@@ -107,14 +107,14 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void) initGamoogaClient {
     [gc onMessageCallback:@selector(processScript:) withTarget:self forType:@"script"];
-    [gc onMessageCallback:@selector(goToScores:) withTarget:self forType:@"scores"];
+    //[gc onMessageCallback:@selector(goToScores:) withTarget:self forType:@"scores"];
 }
 
-- (void) goToScores:(NSString *)data
-{
-    NSLog(@"DATA: %@", data);
-    [self performSegueWithIdentifier:@"finishGame" sender:self];
-}
+//- (void) goToScores:(NSString *)data
+//{
+//    NSLog(@"DATA: %@", data);
+//    [self performSegueWithIdentifier:@"finishGame" sender:self];
+//}
 
 - (void) processScript:(NSString *)data {
     
@@ -155,6 +155,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             NSLog(@"Final Score is: %f", score);
 
             [gc sendMessage:[NSString stringWithFormat:@"%f", score] withType:@"scorereport"];
+            
             [self performSegueWithIdentifier:@"finishGame" sender:self];
             curSeconds = 16925;
         }
