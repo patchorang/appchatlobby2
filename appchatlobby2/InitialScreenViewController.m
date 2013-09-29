@@ -160,6 +160,7 @@
         // Get reference to the destination view controller
         LobbyViewController *vc = [segue destinationViewController];
         [vc setUpPlayerWith:@"Computer" playerId:@"1" gameId:@"1"];
+        [vc setImage:self.faceImage];
     }
 }
 

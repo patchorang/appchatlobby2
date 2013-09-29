@@ -15,9 +15,12 @@
     NSMutableArray *messages;
 }
 
+@property (nonatomic, strong) NSMutableArray *pictures;
 @property (nonatomic, strong) NSString* userName;
 @property (nonatomic, strong) NSString* playerId;
 @property (nonatomic, strong) NSString* gameId;
+@property (nonatomic, strong) UIImage* imageItem;
+@property (nonatomic, strong) NSString* photoUrl;
 
 - (IBAction)startGame:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *chatData;
@@ -27,7 +30,7 @@
 - (IBAction)sendChat:(id)sender;
 - (void) addItem:(NSString *)message;
 - (void) initGamoogaClient;
-
+- (void) setImage:(UIImage *)image;
 - (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId;
 @property (weak, nonatomic) IBOutlet UIButton *startGameButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *lobbyCollectionView;

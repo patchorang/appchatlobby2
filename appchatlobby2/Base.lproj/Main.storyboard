@@ -50,7 +50,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="rra-CT-r9F" kind="push" id="AEH-6f-nEn"/>
+                                            <segue destination="rra-CT-r9F" kind="push" identifier="startGame" id="hIy-dz-9Na"/>
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="pMK-jJ-SJy">
