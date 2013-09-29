@@ -77,19 +77,73 @@
 
 - (void) processScript:(NSString *)data {
     
-    //NSLog(@"%@", data);
+    if (!countingDown) {
+        countingDown = YES;
+        NSData *jsonData = [data dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *e;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&e];
+        actions = [dict objectForKey:@"actions"];
+        lookup = [NSMutableDictionary dictionary];
+        
+        int count = 0;
+        for (int i = 0; i < [actions count]; i++) {
+            [lookup setObject:[[actions objectAtIndex:i] objectForKey:@"action"] forKey:[NSNumber numberWithInt:count]];
+            count += [[[actions objectAtIndex:i] objectForKey:@"time"] integerValue];
+            if (i == [actions count] - 1) {
+                [lookup setObject:@"done" forKey:[NSNumber numberWithInt:count]];
+                totalTime = count;
+            }
+        }
 
-    NSData *jsonData = [data dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&e];
-    //NSLog(@"%@", dict);
-
-    actions = [dict objectForKey:@"actions"];
-    NSLog(@"%@", actions);
-    [self runTimer];
+        [self countdownTimer];
+    }
 }
 
-- (void)runTimer {
+- (void)updateCounter:(NSTimer *)theTimer {
+    if(curSeconds < totalTime ){
+        if ([lookup objectForKey:[NSNumber numberWithInt:curSeconds]] != nil) {
+            self.actionLabel.text = [lookup objectForKey:[NSNumber numberWithInt:curSeconds]];
+        }
+        curSeconds++ ;
+        self.timerLabel.text = [NSString stringWithFormat:@"%d", [self timeTill:curSeconds]];  //[NSString stringWithFormat:@"%d", curSeconds];
+    }
+    else{
+        NSLog(@"Final Score is: %f", score);
+        if (!done) {
+            done = YES;
+            curSeconds = 16925;
+            [self performSegueWithIdentifier:@"finishGame" sender:self];
+        }
+    }
+}
+
+- (void)countdownTimer{
+    curSeconds = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+}
+
+- (int)timeTill:(int)currentTime {
+    int smallestDiff = 100000;
+
+    
+    for (id key in lookup) {
+        int curNum = [key integerValue];
+        if (curNum - currentTime < smallestDiff && curNum - currentTime >= 0) {
+            smallestDiff = curNum - currentTime;
+        }
+    }
+//    for (int i = 0; i < [lookup count]; i++) {
+//        int curNum = [[[actions objectAtIndex:i] objectForKey:@"time"] integerValue];
+//        NSLog(@"%d", curNum- currentTime);
+//        if (curNum - currentTime < smallestDiff && curNum - currentTime >= 0) {
+//            smallestDiff = curNum - currentTime;
+//        }
+//    }
+    return smallestDiff;
+}
+
+
+/*- (void)runTimer {
     double delayInSeconds = 0;
     for(int i = 0; i < [actions count]; i++) {
         
@@ -122,6 +176,6 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self countDownFor:(seconds - 1)];
     });
-}
+}*/
 
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString* playerId;
 @property (nonatomic, strong) NSString* gameId;
 
+- (IBAction)startGame:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *chatData;
 @property (weak, nonatomic) IBOutlet UITextField *chatMsg;
 @property (retain, nonatomic) NSMutableArray *messages;
@@ -26,10 +27,9 @@
 - (IBAction)sendChat:(id)sender;
 - (void) addItem:(NSString *)message;
 - (void) initGamoogaClient;
-- (IBAction)startGame:(id)sender;
 
 - (void)setUpPlayerWith:(NSString *)userName playerId:(NSString *)playerId gameId:(NSString *)gameId;
-
 @property (weak, nonatomic) IBOutlet UIButton *startGameButton;
+
 
 @end
