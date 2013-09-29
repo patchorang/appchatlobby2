@@ -44,8 +44,8 @@
 }
 
 - (void) initGamoogaClient {
-    [gc onMessageCallback:@selector(showFinalReport:) withTarget:self forType:@"scores"];
-    [gc onMessageCallback:@selector(showFinalReportPhotos:) withTarget:self forType:@"photos"];
+    //[gc onMessageCallback:@selector(showFinalReport:) withTarget:self forType:@"scores"];
+    //[gc onMessageCallback:@selector(showFinalReportPhotos:) withTarget:self forType:@"photos"];
 }
 
 - (void)showFinalReport:(NSDictionary *)data {
