@@ -40,7 +40,8 @@
     self.scoreCollectionView.layer.shadowOpacity = 0.7;
     self.scoreCollectionView.layer.shadowOffset = CGSizeMake(0, 0);
     self.scoreCollectionView.layer.shadowRadius = 1.5;
-
+    
+    self.images = [[NSMutableArray alloc] init];
 }
 
 - (void) initGamoogaClient {
@@ -101,12 +102,17 @@
         }
     }
     
+    NSLog(@"%@",maxId);
+    NSLog(@"%@",minId);
+    
     NSLog(@"%@", [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:maxId]]]);
     NSLog(@"%@", [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:minId]]]);
     
     NSData *winImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:maxId]]];
     //self.winnerImage.image = [UIImage imageWithData:winImageData];
-    [self.images addObject:[UIImage imageWithData:winImageData]];
+    if (winImageData) {
+        [self.images addObject:[UIImage imageWithData:winImageData]];
+    }
     
     NSData *loseImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:minId]]];
     //self.loserImage.image = [UIImage imageWithData:loseImageData];
@@ -115,7 +121,9 @@
     UIImage *otherImage = [UIImage imageWithData:imageData];
     self.theimage.image = otherImage;
     
-    [self.images addObject:[UIImage imageWithData:loseImageData]];
+    if (loseImageData) {
+        [self.images addObject:[UIImage imageWithData:loseImageData]];
+    }
     [self.scoreCollectionView reloadData];
 }
 
@@ -134,8 +142,10 @@
 {
     ScoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"win cell" forIndexPath:indexPath];
     cell.rankLabel.text = [NSString stringWithFormat:@"%d",indexPath.item+1];
-    NSLog(@"THe image is %@", [self.images objectAtIndex:indexPath.row]);
-    cell.imageView.image = [self.images objectAtIndex:indexPath.row];
+//    NSLog(@"THe image is %@", [self.images objectAtIndex:indexPath.row]);
+    if (self.images.count != 0) {
+        cell.imageView.image = [self.images objectAtIndex:indexPath.row];
+    }
     return cell;
 }
 

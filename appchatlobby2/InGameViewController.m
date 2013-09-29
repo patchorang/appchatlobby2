@@ -22,6 +22,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 @property (nonatomic, strong) UIImage *borderImage;
 @property (nonatomic, strong) CIDetector *faceDetector;
 
+@property (strong, nonatomic) AVCaptureSession *session;
+
 @end
 
 @implementation InGameViewController {
@@ -156,6 +158,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
             [gc sendMessage:[NSString stringWithFormat:@"%f", score] withType:@"scorereport"];
             
+            [self.videoDataOutput setSampleBufferDelegate:Nil queue:nil];
+            [self.session stopRunning];
             [self performSegueWithIdentifier:@"finishGame" sender:self];
             curSeconds = 16925;
         }
@@ -231,11 +235,11 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 {
 	NSError *error = nil;
 	
-	AVCaptureSession *session = [[AVCaptureSession alloc] init];
+	self.session = [[AVCaptureSession alloc] init];
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
-	    [session setSessionPreset:AVCaptureSessionPreset640x480];
+	    [self.session setSessionPreset:AVCaptureSessionPreset640x480];
 	} else {
-	    [session setSessionPreset:AVCaptureSessionPresetPhoto];
+	    [self.session setSessionPreset:AVCaptureSessionPresetPhoto];
 	}
     
     // Select a video device, make an input
@@ -264,8 +268,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	if( !error ) {
         
         // add the input to the session
-        if ( [session canAddInput:deviceInput] ){
-            [session addInput:deviceInput];
+        if ( [self.session canAddInput:deviceInput] ){
+            [self.session addInput:deviceInput];
         }
         
         
@@ -284,14 +288,14 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         self.videoDataOutputQueue = dispatch_queue_create("VideoDataOutputQueue", DISPATCH_QUEUE_SERIAL);
         [self.videoDataOutput setSampleBufferDelegate:self queue:self.videoDataOutputQueue];
         
-        if ( [session canAddOutput:self.videoDataOutput] ){
-            [session addOutput:self.videoDataOutput];
+        if ( [self.session canAddOutput:self.videoDataOutput] ){
+            [self.session addOutput:self.videoDataOutput];
         }
         
         // get the output for doing face detection.
         [[self.videoDataOutput connectionWithMediaType:AVMediaTypeVideo] setEnabled:YES];
         
-        self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+        self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
         self.previewLayer.backgroundColor = [[UIColor blackColor] CGColor];
         self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         
@@ -299,10 +303,10 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         [rootLayer setMasksToBounds:YES];
         [self.previewLayer setFrame:[rootLayer bounds]];
         [rootLayer addSublayer:self.previewLayer];
-        [session startRunning];
+        [self.session startRunning];
         
     }
-	session = nil;
+	self.session = nil;
 	if (error) {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:
                                   [NSString stringWithFormat:@"Failed with error %d", (int)[error code]]
