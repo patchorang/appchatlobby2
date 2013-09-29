@@ -32,6 +32,7 @@
 		25A71B3F17F7A92A006D9D3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A71B3E17F7A92A006D9D3F /* CoreLocation.framework */; };
 		5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D317F78A02003DFC79 /* LobbyViewController.m */; };
 		5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */; };
+		548B4DC417F8280D00C987A1 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 548B4DC317F8280D00C987A1 /* ScoreCollectionViewCell.m */; };
 		54B2208317F7CBE900CCB847 /* avatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B2208217F7CBE900CCB847 /* avatar-placeholder.png */; };
 		54B2208717F8091C00CCB847 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B2208617F8091C00CCB847 /* border.png */; };
 		54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54F04AAE17F79EE40091238C /* LobbyCollectionViewCell.m */; };
@@ -90,6 +91,8 @@
 		5427E1D617F78A14003DFC79 /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreReportViewController.h; sourceTree = "<group>"; };
 		5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreReportViewController.m; sourceTree = "<group>"; };
+		548B4DC217F8280D00C987A1 /* ScoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCollectionViewCell.h; sourceTree = "<group>"; };
+		548B4DC317F8280D00C987A1 /* ScoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCollectionViewCell.m; sourceTree = "<group>"; };
 		54B2208217F7CBE900CCB847 /* avatar-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar-placeholder.png"; sourceTree = "<group>"; };
 		54B2208617F8091C00CCB847 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
 		54F04AAD17F79EE40091238C /* LobbyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyCollectionViewCell.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				5427E1D617F78A14003DFC79 /* InGameViewController.m */,
 				5427E1D817F78A21003DFC79 /* ScoreReportViewController.h */,
 				5427E1D917F78A21003DFC79 /* ScoreReportViewController.m */,
+				548B4DC217F8280D00C987A1 /* ScoreCollectionViewCell.h */,
+				548B4DC317F8280D00C987A1 /* ScoreCollectionViewCell.m */,
 				2597461217F7827900694B90 /* ACLViewController.h */,
 				2597461317F7827900694B90 /* ACLViewController.m */,
 				2597461517F7827900694B90 /* Images.xcassets */,
@@ -347,6 +352,7 @@
 				5427E1D417F78A02003DFC79 /* LobbyViewController.m in Sources */,
 				2583BEFC17F8114D00CA9CC8 /* ImgurAPI.m in Sources */,
 				54F04AAF17F79EE40091238C /* LobbyCollectionViewCell.m in Sources */,
+				548B4DC417F8280D00C987A1 /* ScoreCollectionViewCell.m in Sources */,
 				2597461417F7827900694B90 /* ACLViewController.m in Sources */,
 				5427E1DA17F78A21003DFC79 /* ScoreReportViewController.m in Sources */,
 				2583BEFD17F8114D00CA9CC8 /* NSData+Base64.m in Sources */,
@@ -494,6 +500,7 @@
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"~/Developer/appchatlobby2/",
+					"~/Documents/Projects/appchatlobby2/",
 					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
@@ -517,6 +524,7 @@
 				INFOPLIST_FILE = "appchatlobby2/appchatlobby2-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"~/Developer/appchatlobby2/",
+					"~/Documents/Projects/appchatlobby2/",
 					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = YES;

@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>43859F57-CDC7-4AC6-958F-DD054F77D7B2</string>
+	<string>F091DE66-2748-4C63-80E4-BD34B8C615DA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>appchatlobby2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9DF9CCEA-83AE-47BF-9A53-5673AF9175E1</key>
-		<string>ssh://github.com/patchorang/appchatlobby2.git</string>
+		<key>42C1FDF5-D124-4C15-A5A9-E83CDF1C5EAE</key>
+		<string>https://github.com/patchorang/appchatlobby2</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>appchatlobby2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9DF9CCEA-83AE-47BF-9A53-5673AF9175E1</key>
+		<key>42C1FDF5-D124-4C15-A5A9-E83CDF1C5EAE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/patchorang/appchatlobby2.git</string>
+	<string>https://github.com/patchorang/appchatlobby2</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9DF9CCEA-83AE-47BF-9A53-5673AF9175E1</string>
+	<string>42C1FDF5-D124-4C15-A5A9-E83CDF1C5EAE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9DF9CCEA-83AE-47BF-9A53-5673AF9175E1</string>
+			<string>42C1FDF5-D124-4C15-A5A9-E83CDF1C5EAE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>appchatlobby2</string>
 		</dict>

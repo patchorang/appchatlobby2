@@ -10,7 +10,7 @@
 #import "GamoogaClient.h"
 #import "LobbyCollectionViewCell.h"
 
-@interface LobbyViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface LobbyViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
     GamoogaClient *gc;
     NSMutableArray *messages;
 }

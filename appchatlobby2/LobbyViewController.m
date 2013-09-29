@@ -244,5 +244,10 @@
     [self.pictures addObject:image];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(260.0, (self.lobbyCollectionView.frame.size.height/2.0)-40);
+}
+
 @end
 

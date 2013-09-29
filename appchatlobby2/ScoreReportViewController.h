@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreReportViewController : UIViewController
+@interface ScoreReportViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *scoreCollectionView;
 
 @end
